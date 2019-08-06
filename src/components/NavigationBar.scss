@@ -1,0 +1,18 @@
+.navigation-bar {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 5px;
+    border-radius: 5px;
+    .logo-container {
+        margin: 8px auto 8px auto;
+    }
+    .selected {
+        color: rgb(255, 197, 0);
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    
+}

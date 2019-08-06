@@ -1,0 +1,23 @@
+.sheet__character {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-size: 2rem;
+    color: #ffc500;
+    margin: 1rem;
+  }
+  span {
+    font-size: 1rem;
+    margin: 0.7rem;
+  }
+  ul {
+    width: 80%;
+    margin: 0 10%;
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}
+  

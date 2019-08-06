@@ -1,0 +1,22 @@
+.sheet__movie  {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  .crawl {
+    color: rgb(75 , 213 ,238);
+    text-align: center;
+    margin: 0px 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+    color: #ffc500;
+    margin: 1rem;
+  }
+  span {
+    font-size: 1rem;
+    margin: 0.7rem;
+  }
+}
+  
+  
