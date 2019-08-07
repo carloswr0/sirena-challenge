@@ -13,11 +13,14 @@
     margin: 0.7rem;
   }
   ul {
-    width: 80%;
-    margin: 0 10%;
+    width: 90%;
+    margin: 0 5%;
     li {
       margin-bottom: 1rem;
-      a {
+      &:first-child{
+        margin-top: 1rem;
+      } 
+      span {
         cursor: pointer;
         color: rgb(75 , 213 ,238);
         &:hover {
