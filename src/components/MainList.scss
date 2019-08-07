@@ -16,4 +16,14 @@
             align-items: center;
         }
     }
+    .load-more {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .MuiButton-contained {
+            color: #fff;
+            background-color: #ffc500;
+        }
+    }
 }
