@@ -4,18 +4,19 @@ import { firstCharacterUppercase } from '../helpers';
 import Loader from '../assets/loader';
 
 function CharacterSheet(props) {
-  const { name, height, mass, hair_color, skin_color, eye_color, birth_year, gender, films } = props.selected;
-  const character = props.characters.find(e => e.name === name);
-
+  const { name, height, mass, hair_color, skin_color, eye_color, birth_year, gender, films, originArray } = props.selected;
+  const character = props[originArray].results.find(e => e.name === name);
+  
   useEffect(() => {
     if(!character.movies) {
-      props.getCharacterMovies(films, name);
+      props.getCharacterMovies(films, name, originArray);
     }
   });
 
   function moveToMovie(movie) {
     props.history.push('/movies');
     props.selectEntity(movie, "movies");
+    props.setFilterKeyword('');
   }
 
   return (
@@ -32,7 +33,7 @@ function CharacterSheet(props) {
       <ul>
         {
           character.movies && character.movies.length > 0 ? character.movies.map((e, key) => {
-            return <li key={key} onClick={() => moveToMovie(e)}><a>{e.title}</a></li> 
+            return <li key={key} onClick={() => moveToMovie(e)}><span>{e.title}</span></li> 
           }) : <Loader />
         }
       </ul>
