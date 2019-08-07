@@ -12,6 +12,7 @@ export function mapStateToProps(state) {
     characters: state.characters,
     selected: state.selected,
     filter: state.filter,
+    search: state.search,
   };
 };
 

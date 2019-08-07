@@ -17,6 +17,13 @@
     margin: 0 10%;
     li {
       margin-bottom: 1rem;
+      a {
+        cursor: pointer;
+        color: rgb(75 , 213 ,238);
+        &:hover {
+          border-bottom: solid rgb(75 , 213 ,238) 1px
+        }
+      }
     }
   }
 }

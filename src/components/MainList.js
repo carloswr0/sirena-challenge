@@ -4,6 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Search from './Search';
+import Loader from '../assets/loader';
 
 class MainList extends React.Component {
   componentDidMount() {
@@ -43,6 +44,7 @@ class MainList extends React.Component {
   render() {
     const results = this.props[this.props.location];
     let filteredArray = [];
+
     if(this.props.filter) {
       filteredArray = results.filter(e => {
         if(e.title) {
@@ -53,13 +55,16 @@ class MainList extends React.Component {
       })
     } else {
       filteredArray = results;
-    }
+    };
+
+   
+
     return (
       <div className="main-list">
         <Search {...this.props}></Search>
         <div className="scrollbox">
           {
-            filteredArray ? filteredArray.map((e, key) => {
+            filteredArray.length > 0 ? filteredArray.map((e, key) => {
               return(
                 <List component="nav" aria-label="main mailbox folders" key={key} onClick={() => this.props.selectEntity(e, this.props.location)}>
                   <ListItem button>
@@ -67,7 +72,7 @@ class MainList extends React.Component {
                   </ListItem>
                 </List>
               )
-            }) : <li>Loading</li>
+            }) : this.props.filter && filteredArray.length < 1 ? <h1 className="not-found">No se encontraron coincidencias.</h1> : <Loader></Loader>
           } 
         </div>
       </div>
