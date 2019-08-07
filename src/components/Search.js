@@ -5,7 +5,6 @@ import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-import { debounce } from '../helpers';
 
 const useStyles = makeStyles({
     root: {
@@ -37,11 +36,10 @@ function Search(props) {
 
     function handleTextChange(event) {
         if(location === 'characters') {
-            //props.searchCharacters(event.target.value);
-            console.log("corrio")
+            props.setFilterKeyword(event.target.value);
+            props.searchCharacters(event.target.value);
         } else {
-            //props.setFilterKeyword(event.target.value);
-            console.log("corrio")
+            props.setFilterKeyword(event.target.value);
         }
     };
     let placeholder = location === 'characters' ? 'Busca en SWAPI' : 'Busca localmente';
@@ -51,7 +49,7 @@ function Search(props) {
                 className={classes.input}
                 placeholder={placeholder}
                 inputProps={{ 'aria-label': 'search swapi' }}
-                onChange={(e) => debounce(handleTextChange(e), 1000)}
+                onChange={(e) => handleTextChange(e)}
             />
             <Divider className={classes.divider} />
             <IconButton className={classes.iconButton} aria-label="search">
